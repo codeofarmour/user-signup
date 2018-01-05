@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Register</h1>
+
+<form action="/" method="post">
+    <fieldset>
+        <legend><h3>User info:</h3></legend>
+            <label for="username">Username: </label><br>
+            <input type="text" name="username" id="username"
+            value="{{ name }}" required autofocus>            
+            <p class="error">{{ name_error }}</p>        
+            <br><br>
+            
+            <label for="psw">Password:</label><br>          
+            <input type="password" name="password" id="psw" value="{{ password }}" required>
+            <p class="error">{{ password_error }}</p>
+            <br><br>
+        
+            <label for="confirm-psw">Confirm Password:</label><br>            
+            <input type="password" name="confirm" id="confirm_psw" value="{{ confirm }}">
+            <p class="error">{{ confirm_error }}</p>
+            <br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" id="email" value="{{ email }}" placeholder="Optional">
+            <p class="error">{{ email_error }}</p>            
+            
+            <br><br>
+            <input type="submit" value="Submit">
+    </fieldset>
+</form>
+{% endblock %}
