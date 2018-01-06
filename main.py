@@ -7,7 +7,7 @@ app.config['DEBUG'] = True
 
 @app.route("/")
 def index():
-    return render_template('signup2.html', title = "Sign up here!")
+    return render_template('index.html', title = "Register here!")
 
 @app.route("/", methods=['POST'])
 def validate_input():
@@ -56,10 +56,10 @@ def validate_input():
     
     if not name_error and not password_error and not confirm_error:
         if email_error:
-                return render_template('signup2.html', title = "Register here!", name = name, email = email, email_error = email_error)
-        return render_template('signup-success.html', title ='Registered!', name = name, password = password, email = email)
+                return render_template('index.html', title = "Register here!", name = name, email = email, email_error = email_error)
+        return render_template('welcome.html', title ='Registered!', name = name, password = password, email = email)
 
-    return render_template('signup2.html', title = "Register here!", name = name, name_error = name_error,\
+    return render_template('index.html', title = "Register here!", name = name, name_error = name_error,\
                             password_error = password_error, confirm_error = confirm_error, email_error = email_error, email = email)
 
 def contains_character(name, character):

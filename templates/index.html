@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -7,7 +7,7 @@
 <form action="/" method="post">
     <fieldset>
         <legend><h3>User info:</h3></legend>
-            <label for="username">Username: </label><br>
+            <label class="try" for="username">Username: </label><br>
             <input type="text" name="username" id="username"
             value="{{ name }}" required autofocus>            
             <p class="error">{{ name_error }}</p>        
