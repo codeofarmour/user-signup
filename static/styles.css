@@ -1,16 +1,12 @@
-h1 {
+.col s12 m7 {
     text-align: center;
     color: #008B8B;
     font-family: 'Bellefair', serif;
-     
 }
 
-.try {
-    color: #008B8B;
-    font-family: 'Bellefair', serif;
+p {
+    color:#008B8B;
+    font-size: 2.56rem;
+    font-family:'Bellefair', serif;
 }
 
-h3 {
-    font-family: 'Bellefair', serif;
-    color: #008B8B;
-}

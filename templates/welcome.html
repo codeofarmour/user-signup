@@ -2,6 +2,22 @@
 
 {% block content %}
 
-<h1>Welcome, {{ name }}!</h1>
-
+<div class="col s12 m7">
+    <p class="z-depth-3"></p>
+        <h2 class="header">Welcome, {{ name }}!</h2>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="./static/bulldog-puppy-dog-pet.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>Thank you for registering!</p>
+            </div>
+            <div class="card-action">
+              <a href="https://twitter.com/codeofarmour?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @codeofarmour</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+         
 {% endblock %}

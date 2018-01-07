@@ -21,31 +21,42 @@ def validate_input():
     confirm_error = ""
     email_error = ""
 
-    if not name:
-        name_error = 'Username required'
-    if not password:
-        if not confirm:
-            confirm_error = 'Password required'
-        password_error = 'Password required'
-
     name_len = len(name)
     password_len = len(password)
 
+    if not name or name_len == 0:
+        name_error = 'Username required'
+    else:
+        name_error = ""
+    
     if invalid_length(name_len):
         name_error = 'Username needs to be at least 3 characters long and less than 20'
-        if name_len == 0:
-            name_error = 'Username required'
-
+    else:
+        name_error = ""
+    
     if contains_character(name, " "):
         name_error = 'Username cannot contain spaces'
 
+    if not password:        
+        password_error = 'Password required'    
+    else:
+        password_error = ""
+
     if invalid_length(password_len):
         password_error = 'Password must be at least 3 characters long but less than 20'
-        
-    if not (password == confirm):
-        confirm_error = 'Passwords must match'
 
-    email_len = len(email)
+    if not password == confirm:
+        confirm_error = 'Password required'
+    else:
+        confirm_error = ""
+    
+    if not password == confirm:
+        confirm_error = "Passwords must match"
+    else:
+        confirm_error = ""
+
+    email_len = len(email)    
+
     if email:
         if invalid_length(email_len):
             email_error = "Email must be at least 3 characters but less than 20"
@@ -53,7 +64,7 @@ def validate_input():
             email_error = "Email cannot contain spaces"
         if not (contains_character(email, '@')) and not (contains_character(email, '.')):
             email_error = "Email must contain the '@' character and the '.' character"
-    
+        
     if not name_error and not password_error and not confirm_error:
         if email_error:
                 return render_template('index.html', title = "Register here!", name = name, email = email, email_error = email_error)
