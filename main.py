@@ -66,7 +66,7 @@ def validate_input():
             email_error = "Email must contain the '@' character and the '.' character"
         else:
             email_error = ""
-        
+       
     if not name_error and not password_error and not confirm_error:
         if email_error:
                 return render_template('index.html', title = "Register here!", name = name, email = email, email_error = email_error)
