@@ -60,10 +60,12 @@ def validate_input():
     if email:
         if invalid_length(email_len):
             email_error = "Email must be at least 3 characters but less than 20"
-        if contains_character(email, " "):
+        elif contains_character(email, " "):
             email_error = "Email cannot contain spaces"
-        if not (contains_character(email, '@')) and not (contains_character(email, '.')):
+        elif not (contains_character(email, '@')) and not (contains_character(email, '.')):
             email_error = "Email must contain the '@' character and the '.' character"
+        else:
+            email_error = ""
         
     if not name_error and not password_error and not confirm_error:
         if email_error:
