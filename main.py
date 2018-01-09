@@ -57,7 +57,7 @@ def validate_input():
         confirm_error = ""
 
     email_len = len(email)
-    #pattern = re.compile('r[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
+    #pattern = re.compile(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
     #success = pattern.finditer(email)
 
     if email:
@@ -66,7 +66,7 @@ def validate_input():
         elif contains_character(email, " "):
             email_error = "Email cannot contain spaces"        
         #elif pattern != success:    
-       #     email_error = "Email must contain one '@' character and one '.' character"
+        #    email_error = "Email must contain one '@' character and one '.' character"
         elif '@' not in email or '@@' in email or '.' not in email or '..' in email:
             email_error = "Email must contain one '@' character and one '.' character"        
         else:
