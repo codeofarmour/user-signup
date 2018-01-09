@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template
 import cgi
 import os
+import re
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -55,15 +56,17 @@ def validate_input():
     else:
         confirm_error = ""
 
-    email_len = len(email)    
+    email_len = len(email)
+    pattern = re.compile('r[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+')
+    success = pattern.finditer(email)
 
     if email:
         if invalid_length(email_len):
             email_error = "Email must be at least 3 characters but less than 20"
         elif contains_character(email, " "):
-            email_error = "Email cannot contain spaces"
-        elif not (contains_character(email, '@')) and not (contains_character(email, '.')):
-            email_error = "Email must contain the '@' character and the '.' character"
+            email_error = "Email cannot contain spaces"        
+        elif pattern != success:    
+            email_error = "Email must contain one '@' character and one '.' character"           
         else:
             email_error = ""
        
